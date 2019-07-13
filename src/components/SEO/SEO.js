@@ -36,7 +36,7 @@ function SEO({ description, lang, meta, title }) {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
-          name: `description`,
+          name: `Alejandro Roman's personal blog`,
           content: metaDescription,
         },
         {
@@ -56,11 +56,11 @@ function SEO({ description, lang, meta, title }) {
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
+          name: `twitter:aromanarguello`,
           content: site.siteMetadata.author,
         },
         {
-          name: `twitter:title`,
+          name: `twitter: Software Engineer based ot Miami`,
           content: title,
         },
         {
