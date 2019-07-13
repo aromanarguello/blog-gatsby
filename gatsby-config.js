@@ -1,16 +1,39 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Alejandro Roman's Blog`,
+    description: `This is my personal blog`,
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        // Apply gatsby-mdx to both .mdx and .md files
+        extensions: [".mdx", ".md"],
+        defaultLayout: require.resolve(
+          "./src/components/BlogPostLayout/BlogPostLayout.js"
+        ),
+        mdPlugins: [
+          require("remark-images"),
+          require("remark-emoji"),
+          require("remark-slug"),
+          require("remark-autolink-headings"),
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `${__dirname}/src/pages/blog`,
       },
     },
     `gatsby-transformer-sharp`,
