@@ -4,4 +4,26 @@ author: Alejandro Roman
 date: 07-05-2019
 ---
 
-Hi
+#Hi
+
+```jsx
+import * as React from "react"
+import Downshift from "downshift"
+
+// mock object that we will use to represent actual dropdown options
+const data = [
+  { item: "One" },
+  { item: "Two" },
+  { item: "Three" },
+  { item: "Four" },
+  { item: "Five" },
+]
+
+const Dropdown: React.FC = () => {
+  // we declare our dropdown as Functional
+  // Component type. Still no props to declare
+  return <Downshift></Downshift>
+}
+
+export default Dropdown
+```

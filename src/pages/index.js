@@ -1,18 +1,18 @@
-import React from "react"
-import { Link } from "gatsby"
-import { SEO, Layout, Image } from "../components"
+import React from 'react'
+import { Link } from 'gatsby'
+import { SEO, Layout, Image } from '../components'
+import { Theme } from '../styles/theme'
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+  <Theme>
+    <Layout>
+      <SEO title="Home" />
       <Image />
-    </div>
-    <Link to="/blog/downshift-dropdown">Go to page 2</Link>
-  </Layout>
+      <Link to="/blog/downshift-dropdown">
+        Build Dropdown with Downshift + TS
+      </Link>
+    </Layout>
+  </Theme>
 )
 
 export default IndexPage
