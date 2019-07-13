@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Alejandro Roman's Blog`,
-    description: `This is my personal blog`,
+    description: `This is my personal blog\n\nWelcome`,
     author: `@gatsbyjs`,
   },
   plugins: [
@@ -9,15 +9,25 @@ module.exports = {
       resolve: `gatsby-mdx`,
       options: {
         // Apply gatsby-mdx to both .mdx and .md files
-        extensions: [".mdx", ".md"],
+        extensions: ['.mdx', '.md'],
         defaultLayout: require.resolve(
-          "./src/components/BlogPostLayout/BlogPostLayout.js"
+          './src/components/BlogPostLayout/BlogPostLayout.js'
         ),
         mdPlugins: [
-          require("remark-images"),
-          require("remark-emoji"),
-          require("remark-slug"),
-          require("remark-autolink-headings"),
+          require('remark-images'),
+          require('remark-emoji'),
+          require('remark-slug'),
+          require('remark-autolink-headings'),
+        ],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              showLineNumbers: true,
+            },
+          },
         ],
       },
     },
