@@ -4,10 +4,11 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 const StyledImage = styled(Img)`
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  margin: 0;
+  margin-right: 20px;
+  padding: 0;
 `
 
 const Image = () => {

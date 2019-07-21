@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Alejandro Roman's Blog`,
-    description: `This is my personal blog\n\nWelcome`,
-    author: `@gatsbyjs`,
+    title: `Personal blog by: Alejandro Roman`,
+    description: `I write about my experiences with React`,
+    author: `Alejandro Roman`,
+    url: 'www.alejandroroman.io',
   },
   plugins: [
     {
@@ -58,6 +59,13 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.alejandroroman.io',
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

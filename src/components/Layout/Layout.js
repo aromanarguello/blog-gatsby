@@ -9,13 +9,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
+import { Header } from '../'
 import Box from '../Box/Box'
-
-import Header from '../Header/header'
+import { GlobalStyles } from '../../styles/global'
 
 const StyledBox = styled(Box)`
-  max-width: 960;
+  width: 100%;
   padding-top: 0;
+  font-family: ${({ theme: { fontFamily } }) => fontFamily};
 `
 
 const Main = styled.main``
@@ -24,26 +25,47 @@ const Footer = styled.footer``
 
 const Link = styled.a``
 
+const Text = styled.p`
+  color: ${({
+    theme: {
+      colors: { navy },
+    },
+  }) => navy};
+`
+
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
+  const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
           title
+          url
         }
       }
     }
   `)
 
+  console.log(site)
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <StyledBox margin="0" padding="0px 1.0875rem 1.45rem">
+      <GlobalStyles />
+      <StyledBox
+        margin="0"
+        padding="0"
+        id="layout-container"
+        display="flex"
+        justifyContent="center"
+        flexDirection="column"
+        alignItems="center"
+      >
+        <Header
+          siteUrl={site.siteMetadata.url}
+          siteTitle={site.siteMetadata.title}
+        />
         <Main>{children}</Main>
         <Footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <Link href="https://www.gatsbyjs.org">Gatsby</Link>
+          <Text>Made by: Alejandro Roman</Text>
         </Footer>
       </StyledBox>
     </>
